@@ -1,0 +1,356 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>LiKo - 我们的秘密花园</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Quicksand:wght@400;600&amp;family=Be+Vietnam+Pro:wght@400;500&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#342f2c",
+                        "ink-brown": "#4A3B31",
+                        "on-surface": "#1f1b18",
+                        "outline": "#80756f",
+                        "secondary": "#8e4e21",
+                        "surface-container-low": "#fcf2ed",
+                        "secondary-fixed-dim": "#ffb68a",
+                        "primary-fixed-dim": "#dbc1b4",
+                        "on-error": "#ffffff",
+                        "on-primary-fixed-variant": "#554339",
+                        "background": "#fff8f5",
+                        "surface-dim": "#e1d8d3",
+                        "on-background": "#1f1b18",
+                        "on-tertiary-fixed": "#002020",
+                        "inverse-on-surface": "#f9efea",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#4e4540",
+                        "on-primary-fixed": "#261810",
+                        "surface-tint": "#6e5a50",
+                        "surface-container-high": "#f0e6e1",
+                        "on-tertiary-fixed-variant": "#174e4f",
+                        "text-muted": "#A8988A",
+                        "outline-variant": "#d2c4bd",
+                        "on-tertiary-container": "#3e7171",
+                        "on-secondary-fixed": "#321300",
+                        "secondary-fixed": "#ffdbc8",
+                        "tertiary": "#336667",
+                        "text-main": "#5C4A3D",
+                        "surface-container": "#f6ece7",
+                        "on-secondary-fixed-variant": "#71370b",
+                        "inverse-primary": "#dbc1b4",
+                        "surface": "#fff8f5",
+                        "primary": "#6e5a50",
+                        "on-tertiary": "#ffffff",
+                        "on-primary-container": "#796459",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed-dim": "#9cd0d0",
+                        "surface-variant": "#eae1dc",
+                        "primary-fixed": "#f8ddcf",
+                        "on-error-container": "#93000a",
+                        "error": "#ba1a1a",
+                        "shadow-peach": "rgba(255, 171, 118, 0.2)",
+                        "primary-container": "#ffe4d6",
+                        "surface-container-highest": "#eae1dc",
+                        "surface-bright": "#fff8f5",
+                        "tertiary-container": "#bef3f3",
+                        "on-secondary": "#ffffff",
+                        "on-secondary-container": "#783d11",
+                        "secondary-container": "#ffab76",
+                        "tertiary-fixed": "#b7ecec",
+                        "error-container": "#ffdad6"
+                    },
+                    spacing: {
+                        "margin-mobile": "16px",
+                        "gutter": "20px",
+                        "xl": "64px",
+                        "md": "24px",
+                        "lg": "40px",
+                        "margin-desktop": "48px",
+                        "base": "4px",
+                        "xs": "8px",
+                        "sm": "16px"
+                    },
+                    fontFamily: {
+                        "body-lg": ["Be Vietnam Pro"],
+                        "handwriting-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "label-md": ["Quicksand"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Be Vietnam Pro"]
+                    },
+                    fontSize: {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "handwriting-lg": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>.material-symbols-outlined {
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+    display: inline-block;
+    vertical-align: middle
+    }
+body {
+    background-image: radial-gradient(#f5d6c6 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 248, 245, 0.95), rgba(255, 228, 214, 0.95));
+    background-size: 40px 40px, 100% 100%;
+    overflow-x: hidden;
+    min-height: 100vh
+    }
+.paper-grain::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuDsv9YqoikQ8SubPIZ4FqcQa6ZF0MOvg_d4rQwNqL1PoqU4lj_07hNtySaFEezMC8y-sTow9zaJkOsmxZEqJwQjx47RfTU_sdHKLcbV4QKpol8Gk9upltql_5l17YWXYNzS_rTLKnbXhUJp9P5NX5sRzkCzcMu05qNrUC2AEOMsTUZ2oWDApSpFO-6QuF_yw-06HUhbHY37MxHFsENyNO150uwTM8wXsVU4D1YEbvZkTBPKGL1ssVwiBtbMgtzNwrkkEI32DAf5B97d);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 1
+    }
+.floating-particle {
+    position: absolute;
+    pointer-events: none;
+    z-index: 0;
+    animation: drift linear infinite
+    }
+@keyframes drift {
+    from {
+        transform: translate(0, 0) rotate(0deg);
+        opacity: 0;
+        } 50% {
+        opacity: 0.6;
+        } to {
+        transform: translate(100px, -100vh) rotate(360deg);
+        opacity: 0;
+        }
+    }
+.bento-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    filter: drop-shadow(0 4px 10px rgba(255, 171, 118, 0.1))
+    }
+.bento-card:hover {
+    transform: scale(1.05) rotate(0deg) !important;
+    filter: drop-shadow(0 15px 30px rgba(255, 171, 118, 0.25));
+    z-index: 50
+    }
+.wobbly-border {
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px
+    }
+.central-hub {
+    position: relative;
+    z-index: 10;
+    animation: pulse-slow 6s ease-in-out infinite
+    }
+@keyframes pulse-slow {
+    0%, 100% {
+        transform: scale(1);
+        filter: drop-shadow(0 10px 20px rgba(255, 171, 118, 0.2));
+        } 50% {
+        transform: scale(1.03);
+        filter: drop-shadow(0 20px 40px rgba(255, 171, 118, 0.3));
+        }
+    }
+.path-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5
+    }
+.path-line {
+    stroke: #8e4e21;
+    stroke-dasharray: 8 8;
+    stroke-width: 1.5;
+    opacity: 0.2;
+    fill: none
+    }</style>
+</head>
+<body class="font-body-md text-on-surface paper-grain">
+<!-- Top AppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md text-primary dark:text-primary-fixed-dim docked full-width top-0 sticky z-50 shadow-peach/10 shadow-sm flex justify-between items-center px-margin-mobile md:px-margin-desktop py-xs w-full">
+<div class="font-handwriting-lg text-handwriting-lg text-secondary dark:text-secondary-fixed-dim tracking-tighter hover:scale-105 transition-transform cursor-pointer">
+            LiKo
+        </div>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="text-secondary font-bold font-label-md text-label-md" href="#">时光</a>
+<a class="text-text-muted hover:text-secondary-container transition-colors font-label-md text-label-md" href="#">相册</a>
+<a class="text-text-muted hover:text-secondary-container transition-colors font-label-md text-label-md" href="#">纪念日</a>
+<a class="text-text-muted hover:text-secondary-container transition-colors font-label-md text-label-md" href="#">更多</a>
+</nav>
+<button class="bg-secondary-container text-on-secondary-container px-md py-xs rounded-full font-label-md text-label-md shadow-sm hover:scale-105 transition-all">
+            💕 登录
+        </button>
+</header>
+<main class="relative min-h-[calc(100vh-80px)] w-full flex justify-center py-xl overflow-hidden items-start">
+<!-- SVG Connections Layer -->
+<!-- Galaxy Hub Container -->
+<div class="container mx-auto px-margin-mobile relative flex flex-col items-center">
+<!-- Central Visual Anchor -->
+<div class="central-hub mt-0 mb-32 md:mb-48">
+<div class="relative w-64 h-64 md:w-80 md:h-80 flex items-center justify-center">
+<!-- Heart Background -->
+<div class="relative z-10 text-center">
+<h1 class="font-display-lg text-display-lg text-secondary tracking-tighter">520 Days</h1>
+<p class="font-handwriting-lg text-secondary opacity-80">爱在一起的每一刻</p>
+</div>
+</div>
+</div>
+<!-- Bento Cards Galaxy -->
+<div class="grid grid-cols-2 md:grid-cols-4 gap-gutter md:absolute md:inset-0 w-full h-full pointer-events-none">
+<!-- 1. Diary (Tape Style) -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:top-[65%] md:left-[5%] rotate-[-2deg]">
+<div class="bg-surface-container-low p-md w-full max-w-[180px] wobbly-border relative group">
+<div class="absolute -top-3 left-1/2 -translate-x-1/2 w-16 h-6 bg-secondary-fixed/50 backdrop-blur-sm transform rotate-1"></div>
+<span class="material-symbols-outlined text-secondary text-4xl block mb-sm">auto_stories</span>
+<h3 class="font-headline-md text-headline-md text-ink-brown">时光日记</h3>
+<p class="font-label-md text-text-muted mt-xs">记录下我们的第520天...</p>
+</div>
+</div>
+<!-- 2. Album (Polaroid Style) -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:top-[50%] md:right-[15%] rotate-[4deg]">
+<div class="bg-white p-2 pb-8 w-full max-w-[170px] shadow-lg transform hover:scale-110 transition-all border border-outline-variant/20">
+<img class="w-full aspect-square object-cover mb-4 grayscale-[0.2]" data-alt="A soft, vintage Polaroid-style photo frame showing a romantic beach sunset with warm golden light, captured in a dreamy, slightly blurred watercolor aesthetic. The edges are soft and the colors are predominantly peach, gold, and seafoam green." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDxTLcHP7qrOUWXlp55FoRUtwHrq5nwDxcAJRTHSB1txQ-Ikm_jFadvH02I6OZnLjbJYRJF0OnfpowbbnT-lceVJJRyncju8QsdzmX3cHyGNGErI2EMsdGL3UfTt8nQSL4cGqSbeZ0AU5OXaAW_Y1ZIS7IEfIgXjTughwAD33Pw-SWDqd-6Rb1YaY7Bekq7uhbhu7b6oT1qM7flRaAiQgiaEKoFEkahuR_3azXDPuFe8O38JHpZlB0fPQ_3PYBVo-7t6RFtG_FF6QP">
+<p class="font-handwriting-lg text-secondary text-center text-sm">夕阳下的漫步</p>
+</div>
+</div>
+<!-- 3. Anniversary (Pushpin Style) -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:right-[5%] md:top-[75%] rotate-[-3deg]">
+<div class="bg-tertiary-container/40 p-md w-full max-w-[190px] wobbly-border relative">
+<div class="absolute -top-4 left-4 w-6 h-6 bg-error rounded-full shadow-inner border-2 border-white/50"></div>
+<span class="material-symbols-outlined text-tertiary text-4xl block mb-sm">favorite</span>
+<h3 class="font-headline-md text-headline-md text-ink-brown">我们的纪念日</h3>
+<p class="font-label-md text-text-muted mt-xs">下一个惊喜在 15天 后</p>
+</div>
+</div>
+<!-- 4. Wishlist (Torn Paper Style) -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:bottom-[10%] md:right-[30%] rotate-[2deg]">
+<div class="bg-surface p-md w-full max-w-[200px] shadow-sm relative overflow-hidden">
+<div class="absolute bottom-0 left-0 right-0 h-2 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+<span class="material-symbols-outlined text-secondary-container text-4xl block mb-sm">temp_preferences_custom</span>
+<h3 class="font-headline-md text-headline-md text-ink-brown">心愿清单</h3>
+<div class="space-y-1 mt-xs">
+<div class="flex items-center gap-xs text-label-md"><span class="w-2 h-2 rounded-full bg-secondary"></span>去北海道看雪</div>
+<div class="flex items-center gap-xs text-label-md opacity-60 line-through"><span class="w-2 h-2 rounded-full bg-outline"></span>一起看日出</div>
+</div>
+</div>
+</div>
+<!-- 5. Message Board -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:bottom-[5%] md:left-[20%] rotate-[-4deg]">
+<div class="bg-primary-container/60 p-md w-full max-w-[210px] wobbly-border">
+<span class="material-symbols-outlined text-primary text-4xl block mb-sm">forum</span>
+<h3 class="font-headline-md text-headline-md text-ink-brown">爱的留言板</h3>
+<p class="italic text-secondary font-handwriting-lg text-sm mt-xs">“今天也要记得喝水呀~”</p>
+</div>
+</div>
+<!-- 6. Music Box -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:top-[45%] md:left-[15%] rotate-[5deg]">
+<div class="bg-surface-container-highest p-md w-full max-w-[160px] rounded-full shadow-md flex flex-col items-center text-center">
+<div class="w-20 h-20 bg-ink-brown rounded-full flex items-center justify-center animate-spin-slow mb-sm">
+<div class="w-6 h-6 bg-secondary-fixed rounded-full"></div>
+</div>
+<h3 class="font-label-md text-ink-brown">八音盒</h3>
+</div>
+</div>
+<!-- 7. Quiz -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:top-[70%] md:left-[40%] rotate-[-1deg]">
+<div class="bg-white/80 backdrop-blur-md p-md w-full max-w-[180px] wobbly-border">
+<span class="material-symbols-outlined text-secondary text-4xl block mb-sm">quiz</span>
+<h3 class="font-headline-md text-headline-md text-ink-brown">默契测试</h3>
+<p class="font-label-md text-text-muted mt-xs">新题目上线！去挑战吧</p>
+</div>
+</div>
+<!-- 8. More -->
+<div class="bobby-card bento-card pointer-events-auto md:absolute md:top-[55%] md:right-[40%] rotate-[3deg]">
+<div class="bg-surface-container p-md w-full max-w-[140px] rounded-xl flex flex-col items-center justify-center aspect-square border-2 border-dashed border-outline-variant">
+<span class="material-symbols-outlined text-secondary text-4xl">more_horiz</span>
+<p class="font-label-md text-secondary mt-xs">发现更多</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Atmosphere Elements -->
+<div id="atmosphere-layer"><div class="floating-particle" style="left: 93.1018vw; bottom: -50px; font-size: 21.2245px; animation-duration: 11.8753s; opacity: 0.753008;">💖</div><div class="floating-particle" style="left: 62.3547vw; bottom: -50px; font-size: 10.8061px; animation-duration: 14.2798s; opacity: 0.980179;">🌸</div><div class="floating-particle" style="left: 4.3104vw; bottom: -50px; font-size: 12.508px; animation-duration: 12.1565s; opacity: 0.897361;">☁️</div><div class="floating-particle" style="left: 63.3329vw; bottom: -50px; font-size: 24.9887px; animation-duration: 16.1548s; opacity: 0.444695;">☁️</div><div class="floating-particle" style="left: 39.1319vw; bottom: -50px; font-size: 16.0824px; animation-duration: 13.9631s; opacity: 0.911676;">☁️</div><div class="floating-particle" style="left: 49.6178vw; bottom: -50px; font-size: 12.6291px; animation-duration: 16.5828s; opacity: 0.451653;">🌸</div><div class="floating-particle" style="left: 75.0013vw; bottom: -50px; font-size: 20.4404px; animation-duration: 15.2526s; opacity: 0.927795;">💖</div><div class="floating-particle" style="left: 97.4795vw; bottom: -50px; font-size: 27.4006px; animation-duration: 12.9605s; opacity: 0.612279;">🌸</div><div class="floating-particle" style="left: 9.44715vw; bottom: -50px; font-size: 10.1069px; animation-duration: 15.6482s; opacity: 0.00421984;">☁️</div><div class="floating-particle" style="left: 50.6054vw; bottom: -50px; font-size: 26.0405px; animation-duration: 13.2242s; opacity: 0.407669;">💖</div><div class="floating-particle" style="left: 52.1935vw; bottom: -50px; font-size: 14.2451px; animation-duration: 13.4203s; opacity: 0.513267;">☁️</div><div class="floating-particle" style="left: 51.1214vw; bottom: -50px; font-size: 12.8687px; animation-duration: 12.8882s; opacity: 0.838608;">☁️</div><div class="floating-particle" style="left: 52.7774vw; bottom: -50px; font-size: 19.4795px; animation-duration: 16.6333s; opacity: 0.34943;">✨</div><div class="floating-particle" style="left: 51.2444vw; bottom: -50px; font-size: 22.4615px; animation-duration: 19.7678s; opacity: 0.661937;">☁️</div><div class="floating-particle" style="left: 42.4586vw; bottom: -50px; font-size: 21.4726px; animation-duration: 11.5319s; opacity: 0.0771217;">🌸</div><div class="floating-particle" style="left: 51.5509vw; bottom: -50px; font-size: 15.1011px; animation-duration: 11.818s; opacity: 0.354323;">✨</div><div class="floating-particle" style="left: 39.4275vw; bottom: -50px; font-size: 18.4148px; animation-duration: 12.5914s; opacity: 0.972061;">💖</div><div class="floating-particle" style="left: 48.5413vw; bottom: -50px; font-size: 27.8543px; animation-duration: 15.3822s; opacity: 0.424014;">🌸</div><div class="floating-particle" style="left: 44.7772vw; bottom: -50px; font-size: 14.3617px; animation-duration: 11.9491s; opacity: 0.0721373;">🌸</div><div class="floating-particle" style="left: 64.5101vw; bottom: -50px; font-size: 25.61px; animation-duration: 13.0703s; opacity: 0.768674;">💖</div></div>
+<!-- Bottom Navigation (Mobile Only) -->
+<footer class="md:hidden bg-surface-container-low/90 backdrop-blur-xl fixed bottom-0 w-full z-50 rounded-t-xl shadow-peach/20 shadow-lg flex justify-around items-center h-16 px-xs pb-safe border-t border-outline-variant/30">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-all">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-md text-[10px]">时光</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">photo_album</span>
+<span class="font-label-md text-[10px]">相册</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-[10px]">纪念日</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">temp_preferences_custom</span>
+<span class="font-label-md text-[10px]">心愿</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:text-secondary transition-colors">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-[10px]">更多</span>
+</div>
+</footer>
+<!-- FAB -->
+<button class="fixed bottom-24 right-6 md:bottom-8 md:right-8 w-16 h-16 bg-secondary-container text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform z-40 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-45 transition-transform">add</span>
+</button>
+<script>
+        // Atmospheric Particles Generation
+        const atmosphere = document.getElementById('atmosphere-layer');
+        const particles = ['🌸', '✨', '💖', '☁️'];
+        
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'floating-particle';
+            particle.innerText = particles[Math.floor(Math.random() * particles.length)];
+            particle.style.left = Math.random() * 100 + 'vw';
+            particle.style.bottom = '-50px';
+            particle.style.fontSize = (Math.random() * 20 + 10) + 'px';
+            particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            particle.style.opacity = Math.random();
+            
+            atmosphere.appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 20000);
+        }
+
+        setInterval(createParticle, 2000);
+
+        // Custom Cursor Interaction
+        const cards = document.querySelectorAll('.bobby-card');
+        cards.forEach(card => {
+            card.classList.add('bento-card');
+            // Adding a little extra wobble on top of hover
+            card.addEventListener('mouseenter', () => {
+                const audio = new Audio('https://www.soundjay.com/buttons/button-11.mp3');
+                audio.volume = 0.1;
+                // audio.play(); // Silent by default for best UX
+            });
+        });
+    </script>
+
+
+
+
+</body></html>

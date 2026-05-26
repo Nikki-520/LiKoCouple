@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+
+<html class="light" lang="zh-CN"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>LiKo - 愿望清单</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Quicksand:wght@400;500;600;700&amp;family=Be+Vietnam+Pro:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "background": "#fff8f5",
+                "primary-container": "#ffe4d6",
+                "primary-fixed-dim": "#dbc1b4",
+                "on-secondary-fixed": "#321300",
+                "error-container": "#ffdad6",
+                "on-background": "#1f1b18",
+                "outline": "#80756f",
+                "on-tertiary-fixed": "#002020",
+                "surface": "#fff8f5",
+                "surface-container-high": "#f0e6e1",
+                "secondary-container": "#ffab76",
+                "on-surface-variant": "#4e4540",
+                "tertiary-fixed": "#b7ecec",
+                "on-tertiary-container": "#3e7171",
+                "on-primary-fixed-variant": "#554339",
+                "outline-variant": "#d2c4bd",
+                "inverse-primary": "#dbc1b4",
+                "on-surface": "#1f1b18",
+                "text-main": "#5C4A3D",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "secondary": "#8e4e21",
+                "inverse-on-surface": "#f9efea",
+                "surface-container": "#f6ece7",
+                "text-muted": "#A8988A",
+                "on-error-container": "#93000a",
+                "secondary-fixed": "#ffdbc8",
+                "on-tertiary": "#ffffff",
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#261810",
+                "surface-variant": "#eae1dc",
+                "ink-brown": "#4A3B31",
+                "shadow-peach": "rgba(255, 171, 118, 0.2)",
+                "error": "#ba1a1a",
+                "primary": "#6e5a50",
+                "surface-tint": "#6e5a50",
+                "surface-container-highest": "#eae1dc",
+                "tertiary": "#336667",
+                "on-primary-container": "#796459",
+                "on-secondary-container": "#783d11",
+                "surface-dim": "#e1d8d3",
+                "secondary-fixed-dim": "#ffb68a",
+                "inverse-surface": "#342f2c",
+                "primary-fixed": "#f8ddcf",
+                "on-primary": "#ffffff",
+                "surface-bright": "#fff8f5",
+                "surface-container-low": "#fcf2ed",
+                "on-tertiary-fixed-variant": "#174e4f",
+                "tertiary-fixed-dim": "#9cd0d0",
+                "on-secondary-fixed-variant": "#71370b",
+                "tertiary-container": "#bef3f3"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+            },
+            "spacing": {
+                "sm": "16px",
+                "base": "4px",
+                "gutter": "20px",
+                "xl": "64px",
+                "md": "24px",
+                "margin-mobile": "16px",
+                "xs": "8px",
+                "margin-desktop": "48px",
+                "lg": "40px"
+            },
+            "fontFamily": {
+                "handwriting-lg": ["Plus Jakarta Sans"],
+                "body-lg": ["Be Vietnam Pro"],
+                "label-md": ["Quicksand"],
+                "headline-md": ["Plus Jakarta Sans"],
+                "display-lg": ["Plus Jakarta Sans"],
+                "headline-lg": ["Plus Jakarta Sans"],
+                "body-md": ["Be Vietnam Pro"]
+            },
+            "fontSize": {
+                "handwriting-lg": ["28px", {"lineHeight": "1.4", "fontWeight": "500"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "600"}],
+                "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                "display-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>body {
+    background-image: radial-gradient(#f5d6c6 0.5px, transparent 0.5px), linear-gradient(to bottom, #fff8f5, #fcf2ed);
+    background-size: 24px 24px, 100% 100%;
+    overflow-x: hidden
+    }
+.paper-grain {
+    position: relative
+    }
+.paper-grain::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(https://lh3.googleusercontent.com/aida-public/AB6AXuBPt9fhVOFipMphd9u3-w4931yU8TLugR7o4CmYQv7Ybb8vkdusQ7H2eGI56J0I1R0PdkwX0woO89j-JxtDWyMHAgAvdSUhrxxJvqw-_EYToDOe4ky2llfEHnXceEXYyS9NdzAqLYTMNJpII9q-pFMxvYtDz9nmBimQ_7J57reKBVrL1wdShpbh5w8KLEwPIZRU2igGtZRoO6gvGplbhSOUV4IU6LuXefUzwNlkCKhLY4wAtyKngpPcg8ffEWxZkd6Xx8ciL6kbgnSn);
+    opacity: 0.05;
+    pointer-events: none;
+    z-index: 10
+    }
+@keyframes swing {
+    0% {
+        transform: rotate(-1deg);
+        } 50% {
+        transform: rotate(1.5deg);
+        } 100% {
+        transform: rotate(-1deg);
+        }
+    }
+.swinging-card {
+    animation: swing 4s ease-in-out infinite;
+    transform-origin: top center
+    }
+.washing-line {
+    background: repeating-linear-gradient(90deg, #80756f, #80756f 2px, transparent 2px, transparent 10px);
+    height: 2px;
+    width: 110%;
+    left: -5%;
+    top: 40px;
+    position: absolute;
+    opacity: 0.4
+    }
+.stamp {
+    position: absolute;
+    border: 3px solid #ba1a1a;
+    color: #ba1a1a;
+    padding: 4px 8px;
+    font-weight: 900;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transform: rotate(-15deg);
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none
+    }
+.stamped .stamp {
+    opacity: 0.8;
+    scale: 1.2
+    }
+.stamped {
+    filter: grayscale(0.4) opacity(0.7);
+    text-decoration: line-through
+    }
+.particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 100
+    }
+.custom-cursor {
+    width: 12px;
+    height: 12px;
+    background: #ffab76;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s
+    }</style>
+</head>
+<body class="font-body-md text-on-background min-h-screen">
+<div class="custom-cursor hidden md:block" id="cursor"></div>
+<!-- TopAppBar -->
+<header class="bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-md text-primary dark:text-primary-fixed-dim docked full-width top-0 sticky z-50 shadow-peach/10 shadow-sm flex justify-between items-center px-margin-mobile md:px-margin-desktop py-xs w-full">
+<div class="font-handwriting-lg text-handwriting-lg text-secondary dark:text-secondary-fixed-dim tracking-tighter">LiKo</div>
+<nav class="hidden md:flex gap-lg">
+<a class="text-text-muted hover:text-secondary-container transition-colors font-label-md text-label-md" href="#">时光</a>
+<a class="text-text-muted hover:text-secondary-container transition-colors font-label-md text-label-md" href="#">相册</a>
+<a class="text-text-muted hover:text-secondary-container transition-colors font-label-md text-label-md" href="#">纪念日</a>
+<a class="text-secondary font-bold font-label-md text-label-md" href="#">心愿</a>
+</nav>
+<button class="hover:scale-105 transition-transform cursor-pointer font-label-md text-label-md text-primary">💕 登录</button>
+</header>
+<main class="max-w-6xl mx-auto px-margin-mobile md:px-margin-desktop py-lg pb-32">
+<!-- Hero Intro -->
+<section class="mb-xl text-center">
+<h1 class="font-display-lg text-display-lg text-ink-brown mb-xs">愿望墙</h1>
+<p class="font-body-lg text-body-lg text-text-muted">我们的每一个小小梦想，都值得被挂起来，一起去实现。</p>
+</section>
+<!-- Wishlist Wall (Washing Line Effect) -->
+<div class="relative min-h-[400px] mb-xl">
+<div class="washing-line"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-lg pt-12" id="active-wishes">
+<!-- Card 1 -->
+<div class="relative pt-6 group">
+<div class="absolute -top-2 left-1/2 -translate-x-1/2 z-20 w-4 h-8 bg-[#D2B48C] rounded-sm shadow-sm"></div> <!-- Peg -->
+<div class="wish-card swinging-card paper-grain bg-surface-container-low p-md rounded-lg shadow-peach/15 shadow-md border-outline-variant/20 border transition-all hover:scale-105 hover:z-30 cursor-pointer" onclick="completeWish(this)">
+<div class="stamp top-4 right-4">已实现</div>
+<h3 class="font-headline-md text-headline-md text-ink-brown mb-xs">去大理看洱海</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">想和你在洱海边骑自行车，吹吹风，什么都不做。</p>
+<div class="mt-md flex justify-end">
+<span class="material-symbols-outlined text-secondary-container">favorite</span>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="relative pt-6 group" style="animation-delay: -0.5s;">
+<div class="absolute -top-2 left-1/3 -translate-x-1/2 z-20 w-4 h-8 bg-[#D2B48C] rounded-sm shadow-sm"></div>
+<div class="wish-card swinging-card paper-grain bg-surface-container-low p-md rounded-lg shadow-peach/15 shadow-md border-outline-variant/20 border transition-all hover:scale-105 hover:z-30 cursor-pointer" onclick="completeWish(this)">
+<div class="stamp top-4 right-4">已实现</div>
+<h3 class="font-headline-md text-headline-md text-ink-brown mb-xs">拼完3000块乐高</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">那个巨大的霍格沃茨城堡，一定要和你一起完成。</p>
+<div class="mt-md flex justify-end">
+<span class="material-symbols-outlined text-secondary-container">extension</span>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="relative pt-6 group" style="animation-delay: -1.2s;">
+<div class="absolute -top-2 left-2/3 -translate-x-1/2 z-20 w-4 h-8 bg-[#D2B48C] rounded-sm shadow-sm"></div>
+<div class="wish-card swinging-card paper-grain bg-surface-container-low p-md rounded-lg shadow-peach/15 shadow-md border-outline-variant/20 border transition-all hover:scale-105 hover:z-30 cursor-pointer" onclick="completeWish(this)">
+<div class="stamp top-4 right-4">已实现</div>
+<h3 class="font-headline-md text-headline-md text-ink-brown mb-xs">学做提拉米苏</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">你说你最喜欢吃提拉米苏，我想为你亲手做一个。</p>
+<div class="mt-md flex justify-end">
+<span class="material-symbols-outlined text-secondary-container">cake</span>
+</div>
+</div>
+</div>
+<!-- Add New Wish Note -->
+<div class="relative pt-6">
+<div class="wish-card bg-primary-container/30 border-2 border-dashed border-secondary-container p-md rounded-lg flex flex-col items-center justify-center min-h-[180px] group hover:bg-primary-container/50 transition-colors cursor-pointer" onclick="toggleForm()">
+<span class="material-symbols-outlined text-display-lg text-secondary-container group-hover:scale-110 transition-transform">add_notes</span>
+<span class="font-label-md text-label-md text-secondary mt-xs">添加新愿望</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Add Form (Hidden by default, styled like a note) -->
+<div class="hidden fixed inset-0 z-[100] flex items-center justify-center bg-on-background/20 backdrop-blur-sm p-margin-mobile" id="add-wish-form">
+<div class="bg-surface-container-lowest paper-grain p-lg rounded-xl shadow-xl max-w-md w-full relative -rotate-1">
+<button class="absolute top-4 right-4 text-text-muted hover:text-ink-brown" onclick="toggleForm()">
+<span class="material-symbols-outlined">close</span>
+</button>
+<h2 class="font-headline-lg text-headline-lg text-ink-brown mb-md">写下我们的心愿</h2>
+<div class="space-y-md">
+<div>
+<label class="block font-label-md text-label-md text-text-muted mb-xs">愿望名称</label>
+<input class="w-full bg-transparent border-b-2 border-outline-variant focus:border-secondary-container focus:ring-0 font-handwriting-lg text-handwriting-lg outline-none py-xs transition-colors" id="wish-title" placeholder="例如：去看一场演唱会" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-text-muted mb-xs">悄悄话</label>
+<textarea class="w-full bg-transparent border-b-2 border-outline-variant focus:border-secondary-container focus:ring-0 font-body-md text-body-md outline-none py-xs transition-colors resize-none" id="wish-desc" placeholder="想和你说的话..." rows="3"></textarea>
+</div>
+<button class="w-full bg-secondary-container text-white py-md rounded-full font-headline-md hover:shadow-lg hover:shadow-peach transition-all transform active:scale-95" onclick="addNewWish()">挂上愿望墙</button>
+</div>
+</div>
+</div>
+<!-- Archived Wishes -->
+<section class="mt-xl">
+<div class="flex items-center gap-xs mb-lg">
+<span class="material-symbols-outlined text-secondary">inventory_2</span>
+<h2 class="font-headline-lg text-headline-lg text-ink-brown">已实现的梦想</h2>
+<div class="flex-grow h-[2px] bg-outline-variant opacity-20 ml-md"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-md" id="archived-wishes">
+<!-- Archived item example -->
+<div class="stamped bg-surface-container/50 border border-outline-variant/30 p-md rounded-lg flex items-center gap-md opacity-80">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined">done_all</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-ink-brown">第一次一起看电影</h4>
+<p class="text-xs text-text-muted">实现于 2023.10.12</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-low/90 dark:bg-surface-container-highest/90 backdrop-blur-xl shadow-peach/20 shadow-lg border-t border-outline-variant/30 flex justify-around items-center h-16 px-xs pb-safe md:hidden">
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">auto_stories</span>
+<span class="font-label-md text-label-md">时光</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">photo_album</span>
+<span class="font-label-md text-label-md">相册</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">favorite</span>
+<span class="font-label-md text-label-md">纪念日</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 transition-all" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">temp_preferences_custom</span>
+<span class="font-label-md text-label-md">心愿</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant" href="#">
+<span class="material-symbols-outlined">more_horiz</span>
+<span class="font-label-md text-label-md">更多</span>
+</a>
+</nav>
+<script>
+        // Custom Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
+
+        document.querySelectorAll('button, a, .wish-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('scale-150', 'bg-secondary'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('scale-150', 'bg-secondary'));
+        });
+
+        // Toggle Add Form
+        function toggleForm() {
+            const form = document.getElementById('add-wish-form');
+            form.classList.toggle('hidden');
+        }
+
+        // Particle Effect
+        function createParticles(x, y) {
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle material-symbols-outlined text-secondary-container';
+                p.innerHTML = 'sparkles';
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                p.style.fontSize = Math.random() * 20 + 10 + 'px';
+                p.style.transition = `all ${Math.random() * 1 + 0.5}s ease-out`;
+                document.body.appendChild(p);
+
+                setTimeout(() => {
+                    p.style.transform = `translate(${(Math.random() - 0.5) * 300}px, ${(Math.random() - 0.5) * 300}px) rotate(${Math.random() * 360}deg)`;
+                    p.style.opacity = '0';
+                }, 50);
+
+                setTimeout(() => p.remove(), 1500);
+            }
+        }
+
+        // Complete Wish
+        function completeWish(card) {
+            if (card.classList.contains('stamped')) return;
+
+            const rect = card.getBoundingClientRect();
+            createParticles(rect.left + rect.width/2, rect.top + rect.height/2);
+
+            card.classList.add('stamped');
+            card.classList.remove('swinging-card');
+            
+            setTimeout(() => {
+                const archive = document.getElementById('archived-wishes');
+                const title = card.querySelector('h3').innerText;
+                const date = new Date().toLocaleDateString();
+                
+                const archivedItem = document.createElement('div');
+                archivedItem.className = 'stamped bg-surface-container/50 border border-outline-variant/30 p-md rounded-lg flex items-center gap-md opacity-80 animate-pulse';
+                archivedItem.innerHTML = `
+                    <div class="w-12 h-12 rounded-full bg-secondary-fixed flex items-center justify-center text-secondary">
+                        <span class="material-symbols-outlined">done_all</span>
+                    </div>
+                    <div>
+                        <h4 class="font-label-md text-label-md text-ink-brown">${title}</h4>
+                        <p class="text-xs text-text-muted">实现于 ${date}</p>
+                    </div>
+                `;
+                archive.prepend(archivedItem);
+                
+                // Hide the original swinging card container
+                card.parentElement.style.opacity = '0';
+                card.parentElement.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    card.parentElement.remove();
+                }, 500);
+            }, 1000);
+        }
+
+        // Add New Wish
+        function addNewWish() {
+            const titleInput = document.getElementById('wish-title');
+            const descInput = document.getElementById('wish-desc');
+            const title = titleInput.value;
+            const desc = descInput.value;
+
+            if (!title) return;
+
+            const container = document.getElementById('active-wishes');
+            const newWish = document.createElement('div');
+            newWish.className = 'relative pt-6 group opacity-0 translate-y-10 transition-all duration-700';
+            const randomDelay = -(Math.random() * 2).toFixed(1);
+            
+            newWish.innerHTML = `
+                <div class="absolute -top-2 left-1/2 -translate-x-1/2 z-20 w-4 h-8 bg-[#D2B48C] rounded-sm shadow-sm"></div>
+                <div class="wish-card swinging-card paper-grain bg-surface-container-low p-md rounded-lg shadow-peach/15 shadow-md border-outline-variant/20 border transition-all hover:scale-105 hover:z-30 cursor-pointer" style="animation-delay: ${randomDelay}s" onclick="completeWish(this)">
+                    <div class="stamp top-4 right-4">已实现</div>
+                    <h3 class="font-headline-md text-headline-md text-ink-brown mb-xs">${title}</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant">${desc || '还没有描述呢~'}</p>
+                    <div class="mt-md flex justify-end">
+                        <span class="material-symbols-outlined text-secondary-container">auto_fix_high</span>
+                    </div>
+                </div>
+            `;
+
+            container.insertBefore(newWish, container.lastElementChild);
+            
+            setTimeout(() => {
+                newWish.classList.remove('opacity-0', 'translate-y-10');
+            }, 50);
+
+            // Reset and close
+            titleInput.value = '';
+            descInput.value = '';
+            toggleForm();
+        }
+    </script>
+</body></html>
