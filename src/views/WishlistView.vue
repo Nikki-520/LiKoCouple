@@ -11,13 +11,14 @@
         <p class="font-body-lg text-body-lg text-text-muted">我们的每一个小小梦想，都值得被挂起来，一起去实现。</p>
       </section>
 
-      <div class="relative min-h-[400px] mb-xl">
+      <div class="relative min-h-[400px] mb-xl" :class="{ 'blur-sm pointer-events-none select-none': !isLoggedIn }">
         <div class="washing-line"></div>
         <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-lg pt-12" id="active-wishes">
           <div
             v-for="(wish, index) in activeWishes"
             :key="wish.id"
             class="wish-card-wrapper relative pt-6 group"
+            @click="handleWishClick"
           >
             <div class="peg absolute -top-2 left-1/2 -translate-x-1/2 z-20 w-4 h-8 bg-[#D2B48C] rounded-sm shadow-sm"></div>
             <div
@@ -116,7 +117,7 @@
         </div>
       </Transition>
 
-      <section v-if="archivedWishes.length" class="mt-xl">
+      <section v-if="archivedWishes.length" class="mt-xl" :class="{ 'blur-sm pointer-events-none select-none': !isLoggedIn }">
         <div class="flex items-center gap-xs mb-lg">
           <span class="material-symbols-outlined text-secondary">inventory_2</span>
           <h2 class="font-headline-lg text-headline-lg text-ink-brown">已实现的梦想</h2>
@@ -220,6 +221,12 @@ function handleAddClick() {
     return
   }
   toggleForm()
+}
+
+function handleWishClick() {
+  if (!isLoggedIn.value) {
+    showLogin.value = true
+  }
 }
 
 function onLoggedIn() {

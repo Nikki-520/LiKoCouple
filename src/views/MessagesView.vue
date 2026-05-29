@@ -208,6 +208,9 @@ const messages = reactive([
 ])
 
 function shouldShowEnvelope(msg, index) {
+  if (!isLoggedIn.value) {
+    return true
+  }
   if (!currentName.value) {
     return !msg.read || index < 2
   }
@@ -233,6 +236,10 @@ function syncStorage() {
 }
 
 function openEnvelope(index) {
+  if (!isLoggedIn.value) {
+    showLogin.value = true
+    return
+  }
   const msg = messages[index]
   if (!msg) return
   msg._opened = !msg._opened
