@@ -1,4 +1,5 @@
 <template>
+<div class="unlock-page">
   <div class="min-h-screen flex flex-col items-center justify-center relative overflow-hidden">
     <div class="absolute inset-0 z-0">
       <img :src="bgUrl" class="w-full h-full object-cover" alt="" />
@@ -78,6 +79,20 @@
       </div>
     </main>
   </div>
+
+  <footer class="beian-footer">
+    <div class="inline-flex flex-wrap justify-center items-center gap-x-4 gap-y-1">
+      <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+        苏ICP备2026034241号-1
+      </a>
+      <span class="opacity-30 select-none">|</span>
+      <a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=苏xxxxxx" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1">
+        <img src="https://img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="beian-icon" alt="" />
+        苏公网安备 苏xxxxxx号
+      </a>
+    </div>
+  </footer>
+</div>
 </template>
 
 <script setup>
@@ -189,3 +204,38 @@ function goHome() {
   })
 }
 </script>
+
+<style>
+.beian-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 16px;
+  font-size: 11px;
+  color: rgba(168, 152, 138, 0.5);
+  background: linear-gradient(to top, rgba(255,248,245,0.85) 0%, transparent 100%);
+  pointer-events: auto;
+}
+
+.beian-footer a {
+  color: rgba(168, 152, 138, 0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.beian-footer a:hover {
+  color: rgba(142, 78, 33, 0.8);
+}
+
+.beian-icon {
+  width: 14px;
+  height: 14px;
+  vertical-align: middle;
+  opacity: 0.6;
+}
+</style>

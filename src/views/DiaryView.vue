@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen font-body-md overflow-x-hidden relative" style="background-color: #fff8f5; color: #1f1b18; background-image: url('/diary-bg.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+  <div class="min-h-screen font-body-md overflow-x-hidden relative" style="background: linear-gradient(180deg, #fdf8f3 0%, #fff5f0 100%); color: #1f1b18;">
 
     <AppBar @login="showLogin = true" />
 
